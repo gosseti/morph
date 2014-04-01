@@ -1,0 +1,63 @@
+
+
+form{
+  margin:0;
+
+  h1{
+    font-size:$medium;
+    text-transform: uppercase;
+    letter-spacing: -.02rem;
+    color:#666;
+  }
+
+}
+
+
+fieldset{
+  border:none;
+  margin:#{$lh/3}em 0;
+  padding:0;
+
+  input:not(:last-child){
+    margin-bottom:#{$lh/3}em;
+  }
+
+}
+
+
+
+#{$all-text-inputs} {
+  line-height:#{$lh};
+  width:100%;
+
+  border:solid 1px #eee;
+  padding:#{$lh/2}em #{$lh/3}em;
+  outline:none;
+  appearance:none;
+}
+
+.submit{
+  background:#16a085;
+  color:#fff;
+  font-weight:bold;
+  border:none;
+  margin:#{$lh/4}em 0 0;
+  padding:#{$lh/3}em #{$lh/2}em;
+
+  &+a{
+    display:block;
+    float:right;
+    margin:#{$lh/4}em 0 0;
+    padding:#{$lh/3}em 0 0;
+  }
+
+}
+
+#{$all-text-inputs-hover} { // Target the :hover pseudo-class
+
+}
+
+#{$all-text-inputs-focus} { // Target the :focus pseudo-class
+  box-shadow:0 0 #{$lh/8}em #3498db;
+  border-color: #3498db;
+}

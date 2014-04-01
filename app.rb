@@ -4,10 +4,10 @@ require 'slim'
 require 'fastimage'
 
 class SinatraBootstrap < Sinatra::Base
-  # require './helpers/render_partial'
+  require './helpers/render_partial'
 
   get '/' do
-    slim :index
+    slim :list
   end
 
   # start the server if ruby file executed directly

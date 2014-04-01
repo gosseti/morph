@@ -5,6 +5,20 @@ $black: #292D33;
 $white: #F1F1F1;
 $link: #f1c40f;
 
+$xx-small : 0.486em;
+$x-small  : 0.618em;
+$small    : 0.786em;
+$medium   : 1em;
+$large    : 1.272em;
+$x-large  : 1.618em;
+$xx-large : 2.058em;
+
+%elip{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 %aliased{
   -webkit-font-smoothing: antialiased;
 }

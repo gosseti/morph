@@ -1,0 +1,120 @@
+%swingIn {
+  animation-duration: .25s;
+  animation-name: swingIn;
+  animation-timing-function:$ease-in-out-sine;
+  backface-visibility: visible !important;
+}
+
+%swingInReverse{
+  animation-duration: .4s;
+  animation-name: swingInReverse;
+}
+
+%insertIn{
+  animation-duration: .4s;
+  animation-name: insertIn;
+  animation-timing-function:ease;
+  backface-visibility: visible !important;
+}
+
+%insertInReverse{
+  animation-timing-function:$ease-in-quint;
+  animation-direction: reverse;
+}
+
+%explodeIn {
+  animation-duration: .3s;
+  animation-name: explodeIn;
+  animation-timing-function:$ease-in-out-quad;
+  backface-visibility: visible !important;
+}
+
+%insertInReverse{
+  animation-timing-function:$ease-in-quint;
+  animation-direction: reverse;
+}
+
+@keyframes insertIn {
+  0% {
+    max-height:0;
+    margin-bottom:0;
+    opacity: 0;
+  }
+
+  70%{
+    opacity:0;
+  }
+
+  100% {
+    max-height:5em;
+    opacity: 1;
+  }
+}
+
+
+@keyframes swingIn {
+  0% {
+    max-height:0;
+    transform:
+      perspective(400px)
+      rotateX(-90deg)
+      scale(.75);
+    opacity: 0;
+  }
+
+  100% {
+    max-height:5em;
+    transform:
+      perspective(400px)
+      rotateX(0deg)
+      scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes swingInReverse {
+
+  0%{
+    max-height:#{$lh*5}em;
+    max-width:#{$lh*20}em;
+  }
+
+  65%{
+    opacity:1;
+    max-height:#{$lh*5}em;
+    max-width:0;
+  }
+
+  100% {
+    opacity:0;
+    max-height:0;
+  }
+}
+
+@keyframes explodeIn {
+
+  0%{
+    opacity:0;
+    max-height:0;
+    transform:
+      scale(0.25);
+  }
+
+  25%{
+    max-height:#{$lh*5}em;
+  }
+
+  65%{
+    transform:
+      scale(1.1);
+  }
+
+  100% {
+    opacity:1;
+    transform:
+      scale(1);
+  }
+
+}
+
+

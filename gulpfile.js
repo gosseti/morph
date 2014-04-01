@@ -1,40 +1,64 @@
-var gulp      = require('gulp');
-
-var coffee    = require('gulp-coffee');
-var concat    = require('gulp-concat');
-var uglify    = require('gulp-uglify');
-var sass      = require('gulp-sass');
-var bourbon   = require('node-bourbon').includePaths;
-var plumber   = require('gulp-plumber');
-var minifycss = require('gulp-minify-css');
-var gulpif    = require('gulp-if');
+var gulp          = require('gulp'),
+    sass          = require('gulp-sass'),
+    autoprefixer  = require('gulp-autoprefixer'),
+    minifycss     = require('gulp-minify-css'),
+    rename        = require('gulp-rename'),
+    concat        = require('gulp-concat'),
+    notify        = require('gulp-notify'),
+    coffee        = require('gulp-coffee'),
+    uglify        = require('gulp-uglify'),
+    bourbon       = require('node-bourbon').includePaths,
+    gulpif        = require('gulp-if'),
+    bower         = require('gulp-bower-files'),
+    livereload    = require('gulp-livereload'),
+    lr            = require('tiny-lr'),
+    server        = lr(),
+    cssbeautify   = require('gulp-cssbeautify');
 
 var paths = {
-  scripts: ['public/javascripts/*.coffee', 'public/javascripts/*.js'],
-  styles: ['public/stylesheets/application.scss', 'public/stylesheets/sass/*.scss']
+  scripts: ['public/javascripts/**/*.js', 'public/javascripts/**/*.coffee'],
+  styles: ['public/stylesheets/**/*.scss'],
+  bower: ['bower.json']
 };
+
+gulp.task('bower', function(){
+  bower().pipe(gulp.dest("public/javascripts"));
+});
 
 gulp.task('scripts', function() {
   gulp.src(paths.scripts)
     .pipe(gulpif(/[.]coffee$/, coffee()))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('public/'));
+    .pipe(gulp.dest('public/'))
+    .pipe(livereload(server))
+    .pipe(notify({
+      message: 'Script task completed.'
+    }));
 });
 
-gulp.task('styles', function () {
+gulp.task('styles', function() {
   gulp.src('public/stylesheets/application.scss')
-    .pipe(plumber())
     .pipe(sass({
       includePaths: ['public/stylesheets/sass/'].concat(bourbon)
     }))
+    .pipe(autoprefixer('last 2 versions'))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(minifycss())
-    .pipe(gulp.dest('public/'));
+    .pipe(cssbeautify())
+    .pipe(gulp.dest('public'))
+    .pipe(livereload(server))
+    .pipe(notify({
+      message: 'Style task completed.'
+    }));
 });
 
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['scripts']);
   gulp.watch(paths.styles, ['styles']);
+  gulp.watch(paths.bower, ['bower', 'scripts']);
 });
 
-gulp.task('default', ['scripts', 'styles', 'watch']);
+gulp.task('default', ['bower', 'scripts', 'styles', 'watch']);

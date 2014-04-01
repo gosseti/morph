@@ -1,0 +1,25 @@
+{
+  "name": "onboard",
+  "version": "0.1",
+  "homepage": "https://github.com/gosseti/shards",
+  "authors": [
+    "Lawrence Gosset <lawrencegosset@gmail.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fastclick": "~1.0.0"
+  }
+}

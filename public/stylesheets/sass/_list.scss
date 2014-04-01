@@ -1,0 +1,119 @@
+.main{
+  @include clearfix;
+}
+
+.listContainer{
+  max-width:25em;
+  margin-bottom:#{$lh*2}em;
+
+
+  @include respond-min(35em) {
+    float:left;
+    width:48.75%;
+    margin-right:2.5%;
+
+    &:nth-of-type(2n){
+      margin-right:0;
+    }
+
+  }
+
+  @include respond-min(70em) {
+    width:23.125%;
+
+    &:nth-of-type(2n){
+      margin-right:2.5%;
+    }
+
+    &:nth-of-type(4n){
+      margin-right:0;
+    }
+  }
+
+}
+
+.list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.list__item{
+  margin-bottom: #{$lh/10}em;
+  overflow:hidden;
+
+  &:last-of-type{
+    margin-bottom:0;
+  }
+
+}
+
+.list__link{
+  display:block;
+  padding:#{$lh/3}em #{$lh/2}em;
+  background:#95a5a6;
+  color:#fff;
+  font-weight:bold;
+  font-size:1.25em;
+  cursor:pointer;
+}
+
+.buttons{
+  margin:#{$lh/2}em 0;
+}
+
+.button{
+  width:100%;
+  padding:#{$lh/4}em #{$lh/2}em;
+  background-color:#2ecc71;
+  color:#fff;
+  font-weight:bold;
+  border:none;
+  display:block;
+  outline:none;
+}
+
+.list__add{
+  margin-top:#{$lh/6}em;
+}
+
+
+.list--one{
+
+  .isAdding{
+    @extend %insertIn;
+  }
+
+  .isRemoving{
+    @extend %insertIn;
+    @extend %insertInReverse;
+  }
+
+}
+
+.list--two{
+
+  .isAdding{
+    @extend %swingIn;
+  }
+
+  .isRemoving{
+    @extend %swingIn;
+    @extend %swingInReverse;
+    @extend %elip;
+  }
+
+}
+
+.list--three{
+
+  .isAdding{
+    @extend %explodeIn;
+  }
+
+  .isRemoving{
+    @extend %insertIn;
+    @extend %insertInReverse;
+  }
+
+}
