@@ -6,7 +6,9 @@
 
 button,html,input,optgroup,select,textarea {
     -webkit-font-smoothing: antialiased
-}/*! normalize.css v3.0.0 | MIT License | git.io/normalize */html {
+}
+
+html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
