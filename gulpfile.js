@@ -16,21 +16,21 @@ var gulp          = require('gulp'),
     cssbeautify   = require('gulp-cssbeautify');
 
 var paths = {
-  scripts: ['public/javascripts/**/*.js', 'public/javascripts/**/*.coffee'],
-  styles: ['public/stylesheets/**/*.scss'],
+  scripts: ['assets/javascripts/**/*.js', 'assets/javascripts/**/*.coffee'],
+  styles: ['assets/stylesheets/**/*.scss'],
   bower: ['bower.json']
 };
 
 gulp.task('bower', function(){
-  bower().pipe(gulp.dest("public/javascripts"));
+  bower().pipe(gulp.dest("assets/javascripts"));
 });
 
 gulp.task('scripts', function() {
   gulp.src(paths.scripts)
     .pipe(gulpif(/[.]coffee$/, coffee()))
     // .pipe(uglify())
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest('public/'))
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest(''))
     .pipe(livereload(server))
     .pipe(notify({
       message: 'Script task completed.'
@@ -38,17 +38,14 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('styles', function() {
-  gulp.src('public/stylesheets/application.scss')
+  gulp.src('assets/stylesheets/application.scss')
     .pipe(sass({
-      includePaths: ['public/stylesheets/sass/'].concat(bourbon)
+      includePaths: ['assets/stylesheets/sass/'].concat(bourbon)
     }))
     .pipe(autoprefixer('last 2 versions'))
-    .pipe(rename({
-      suffix: '.min'
-    }))
     .pipe(minifycss())
     .pipe(cssbeautify())
-    .pipe(gulp.dest('public'))
+    .pipe(gulp.dest(''))
     .pipe(livereload(server))
     .pipe(notify({
       message: 'Style task completed.'

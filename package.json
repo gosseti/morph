@@ -1,7 +1,7 @@
 {
-  "name": "shards",
+  "name": "morph",
   "version": "0.1.0",
-  "description": "Shards portfolio app",
+  "description": "Morph interface components",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "~3.5.5"
@@ -27,24 +27,19 @@
     "gulp-bower": "0.0.3",
     "gulp-cssbeautify": "^0.1.3"
   },
-  "scripts": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/gosseti/shards.git"
+    "url": "git://github.com/gosseti/morph.git"
   },
   "keywords": [
-    "gallery",
-    "portfolio",
-    "photos",
-    "animated",
-    "minimal"
+    "animations",
+    "transitions",
+    "interface",
+    "components"
   ],
   "author": "Lawrence Gosset",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/gosseti/shards/issues"
-  },
-  "homepage": "https://github.com/gosseti/shards/sinatra-bootstrap"
+    "url": "https://github.com/gosseti/morph/issues"
+  }
 }

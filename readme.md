@@ -4,7 +4,7 @@ A set of tasteful transitions and animations for common interface components.
 
 ## Demo
 
-[http://gosseti.github.io/morph/](http://gosseti.github.io/morph/)
+[See the demo](http://gosseti.github.io/morph/)
 
 ## Dependencies for development
 
