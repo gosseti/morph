@@ -848,4 +848,8 @@ if (typeof define !== 'undefined' && define.amd) {
     return false;
   };
 
+  window.addEventListener("load", (function() {
+    return FastClick.attach(document.body);
+  }), false);
+
 }).call(this);

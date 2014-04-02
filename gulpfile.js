@@ -29,7 +29,7 @@ gulp.task('scripts', function() {
   gulp.src(paths.scripts)
     .pipe(gulpif(/[.]coffee$/, coffee()))
     // .pipe(uglify())
-    .pipe(concat('main.js'))
+    .pipe(concat('dist/main.js'))
     .pipe(gulp.dest(''))
     .pipe(livereload(server))
     .pipe(notify({
@@ -45,7 +45,7 @@ gulp.task('styles', function() {
     .pipe(autoprefixer('last 2 versions'))
     .pipe(minifycss())
     .pipe(cssbeautify())
-    .pipe(gulp.dest(''))
+    .pipe(gulp.dest('dist/'))
     .pipe(livereload(server))
     .pipe(notify({
       message: 'Style task completed.'

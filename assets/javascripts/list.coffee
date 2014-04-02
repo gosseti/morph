@@ -63,3 +63,7 @@ dynamicEvent = (el, parent) ->
 
   # Prevent the form submitting
   false
+
+window.addEventListener "load", (->
+  FastClick.attach document.body
+), false
